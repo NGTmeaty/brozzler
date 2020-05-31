@@ -1,6 +1,6 @@
 ---
 - name: ensure rethinkdb apt public key is trusted
-  apt_key: url=http://download.rethinkdb.com/apt/pubkey.gpg
+  apt_key: url=https://download.rethinkdb.com/repository/raw/pubkey.gpg
   become: true
 - name: ensure rethinkdb repo is in apt sources.list
   apt_repository:
