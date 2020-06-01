@@ -59,6 +59,10 @@
   become: true
   file: path={{venv_root}}/websockify-ve3 state=directory owner={{user}}
  
+#get python3 version for checks below 
+- shell: "python3 --version"
+  register: python_installed
+  
  #websockify's dependency numpy's latest version no longer supports 3.5
 - name: install old version of numpy for websockify
   pip:
@@ -69,7 +73,7 @@
     extra_args: '--no-input --upgrade --pre --cache-dir=/tmp/pip-cache'
   become: true
   become_user: '{{user}}'
-  when: '"3.5" in ansible_python_version'
+  when: '"3.5" in python_installed'
  
 - name: install websockify in virtualenv
   pip:
