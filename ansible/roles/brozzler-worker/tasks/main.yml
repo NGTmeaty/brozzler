@@ -58,9 +58,9 @@
 - name: mkdir {{venv_root}}/websockify-ve3
   become: true
   file: path={{venv_root}}/websockify-ve3 state=directory owner={{user}}
- #websockify's dependency numpy's latest version no longer supports 3.5
  
- - name: install old version of numpy for websockify
+ #websockify's dependency numpy's latest version no longer supports 3.5
+- name: install old version of numpy for websockify
   pip:
     name: numpy==1.18.4
     virtualenv: '{{venv_root}}/websockify-ve3'
