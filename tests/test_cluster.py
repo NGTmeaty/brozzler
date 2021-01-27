@@ -293,10 +293,13 @@ def test_proxy_non_warcprox(httpd):
 def test_no_proxy(httpd):
     try:
         stop_service('brozzler-worker')
+        print("1")
         _test_proxy_setting(
                 httpd, proxy=None, warcprox_auto=False, is_warcprox=False)
+        print("2")
     finally:
         start_service('brozzler-worker')
+        print("3")
     # XXX how to check that no proxy was used?
 
 def test_warcprox_auto(httpd):
